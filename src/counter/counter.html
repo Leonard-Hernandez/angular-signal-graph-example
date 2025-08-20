@@ -1,0 +1,19 @@
+<div class="app">
+	<h1>Counter Demo</h1>
+	<div class="demo">
+		<div class="display">
+			<h2>Count: {{ count() }}</h2>
+			<span>|</span>
+			<h2>Double: {{ double() }}</h2>
+		</div>
+		<div class="controls">
+			<button (click)="increment()">+1</button>
+			<button (click)="reset()">Reset</button>
+		</div>
+		<div class="effect-info">
+			<h3>Effect Activity:</h3>
+			<p>Console logs: {{ logCount() }}</p>
+			<p>Last logged: {{ lastValue() }}</p>
+		</div>
+	</div>
+</div>

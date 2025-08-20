@@ -1,0 +1,98 @@
+.app {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 30px;
+	font-family: system-ui, sans-serif;
+	background: white;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	text-align: center;
+	color: #374151;
+	font-size: 2.5em;
+	margin-block: 0 15px;
+}
+
+.demo {
+	background: rgba(black, 0.05);
+	padding: 20px;
+	border-radius: 8px;
+}
+
+.display {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	text-align: center;
+	margin-bottom: 20px;
+
+	span {
+		color: #999;
+		font-size: 2em;
+		margin-inline: 0.5em;
+		translate: 0 -6%;
+	}
+}
+
+.display h2 {
+	margin: 10px 0;
+	font-size: 2em;
+}
+
+.display h2:first-child {
+	color: #3b82f6;
+}
+
+.display h2:last-child {
+	color: #059669;
+}
+
+.controls {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+button {
+	padding: 12px 24px;
+	background: #3b82f6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1em;
+}
+
+button:hover {
+	background: #2563eb;
+}
+
+code {
+	background: #f3f4f6;
+	padding: 2px 4px;
+	border-radius: 3px;
+	font-family: monospace;
+}
+
+.effect-info {
+	background: #fef3c7;
+	border: 2px solid #f59e0b;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 15px 0 0;
+}
+
+.effect-info h3 {
+	margin-top: 0;
+	color: #92400e;
+}
+
+.effect-info p {
+	margin: 5px 0;
+	color: #78350f;
+}

@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { FilterToolbarComponent } from './ui/filter-toolbar/filter-toolbar.component';
-import { ProductListComponent } from './ui/product-list/products-list.component';
-import { StatsPanelComponent } from './ui/stats-panel/stats-panel.component';
+import { CounterComponent } from './counter/counter';
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <app-filter-toolbar />
-    <app-stats-panel />
-    <app-product-list />
-  `,
-  imports: [
-    FilterToolbarComponent, ProductListComponent, StatsPanelComponent
-  ]
+    selector: 'app-root',
+    standalone: true,
+    imports: [CounterComponent],
+    template: `<app-counter></app-counter>`,
+    styles: [`
+        :host {
+            display: block;
+            min-height: 100vh;
+            background: #f3f4f6;
+            padding: 20px; 
+        }
+    `]
 })
-export class App {
-  name = 'Angular';
-}
+export class AppComponent {}
 
-bootstrapApplication(App);
+bootstrapApplication(AppComponent);
