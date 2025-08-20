@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, signal } from "@angular/core";
+import { ChangeDetectionStrategy, Component, computed, effect, linkedSignal, signal } from "@angular/core";
 
 @Component({
     selector: 'app-counter',
@@ -7,9 +7,10 @@ import { ChangeDetectionStrategy, Component, computed, effect, signal } from "@a
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CounterComponent {
-    protected count = signal(0, { debugName: 'count' });
-    protected logCount = signal(0, { debugName: 'logCount' });
-    protected lastValue = signal(0, { debugName: 'lastValue' });
+    protected count = signal(0);
+    protected logCount = signal(0);
+    protected lastValue = signal(0);
+    protected previousCount = linkedSignal(() => this.count());
   
     // BEFORE: This computed signal is BROKEN (Green square)
     protected double = computed(() => {
