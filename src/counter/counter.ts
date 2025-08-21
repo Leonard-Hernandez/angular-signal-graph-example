@@ -8,18 +8,17 @@ import { ChangeDetectionStrategy, Component, computed, effect, linkedSignal, sig
 })
 export class CounterComponent {
     protected count = signal(0);
-    protected logCount = signal(0);
-    protected lastValue = signal(0);
+    protected lastValue = computed(() => this.count());
     protected previousCount = linkedSignal(() => this.count());
-  
-    // BEFORE: This computed signal is BROKEN (Green square)
+
+    // BEFORE:
     protected double = computed(() => {
-        const initialValue = 0; // This should be this.count()
+        const currentValue = 0; // This should be this.count()
         console.log('Double calculated (broken version)');
-        return initialValue * 2;
+        return currentValue * 2;
     });
   
-    // AFTER: Uncomment this and comment out the above to fix
+    // AFTER:
     // protected double = computed(() => {
     //     const currentValue = this.count();
     //     console.log('Double calculated (fixed version)');
@@ -30,8 +29,6 @@ export class CounterComponent {
         effect(() => {
             const current = this.count();
             console.log(`Count changed to: ${current}`);
-            this.logCount.update(count => count + 1);
-            this.lastValue.set(current);
         }, { debugName: 'countLogger' });
     }
   
