@@ -1,0 +1,50 @@
+/* Card container styling for the child component */
+:host {
+  display: block;
+  margin: 12px auto;
+  max-width: 560px;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0; /* slate-200 */
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); /* white to slate-50 */
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 6px 16px rgba(15, 23, 42, 0.04); /* slate-900 */
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+:host(:hover) {
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08), 0 10px 22px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+/* Typography */
+p {
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+  color: #0f172a; /* slate-900 */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Title line */
+p:first-of-type {
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  color: #1d4ed8; /* blue-600 */
+}
+
+/* Count line */
+p:nth-of-type(2) {
+  color: #0369a1; /* sky-800 */
+  font-size: 1.125rem; /* 18px */
+  font-variant-numeric: tabular-nums; /* aligns numbers nicely */
+}
+
+/* Subtle separator when there are more lines in the future */
+:host::after {
+  content: "";
+  display: block;
+  margin-top: 8px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.06) 50%, rgba(2,6,23,0) 100%);
+}
+

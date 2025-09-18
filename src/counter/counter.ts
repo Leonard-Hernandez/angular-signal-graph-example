@@ -1,29 +1,24 @@
 import { ChangeDetectionStrategy, Component, computed, effect, linkedSignal, signal } from "@angular/core";
+import { Child } from "../child/child";
+import { AnoterChild } from "../anoter-child/anoter-child";
 
 @Component({
     selector: 'app-counter',
     templateUrl: './counter.html',
     styleUrls: ['./counter.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [Child, AnoterChild]
 })
 export class CounterComponent {
     protected count = signal(0);
     protected lastValue = computed(() => this.count());
     protected previousCount = linkedSignal(() => this.count());
 
-    // BEFORE:
     protected double = computed(() => {
-        const currentValue = 0; // This should be this.count()
+        const currentValue = 0;
         console.log('Double calculated (broken version)');
         return currentValue * 2;
     });
-  
-    // AFTER:
-    // protected double = computed(() => {
-    //     const currentValue = this.count();
-    //     console.log('Double calculated (fixed version)');
-    //     return currentValue * 2;
-    // });
   
     constructor() {
         effect(() => {
@@ -38,5 +33,9 @@ export class CounterComponent {
   
     protected reset(): void {
         this.count.set(0);
+    }
+
+    protected greeting(greeting: string): void {
+        alert(greeting);
     }
   }

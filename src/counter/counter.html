@@ -16,4 +16,6 @@
 			<p>Previous count: {{ previousCount() }}</p>
 		</div>
 	</div>
+	<app-child [count]="count()" (greeting)="greeting($event)"></app-child>
+	<app-anoter-child [count]="count()" (greeting)="greeting($event)"></app-anoter-child>
 </div>
