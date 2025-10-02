@@ -1,10 +1,11 @@
-import { Component, input, Input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-anoter-child',
   imports: [],
   templateUrl: './anoter-child.html',
-  styleUrl: './anoter-child.css'
+  styleUrl: './anoter-child.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AnoterChild {
 
@@ -14,11 +15,11 @@ export class AnoterChild {
 
   constructor() {
     let interval = setInterval(() => {
-      this.greeting.emit('como estas');
+      //this.greeting.emit('como estas');
     }, 4000);
 
     setTimeout(() => {
-      //clearInterval(interval);
+      clearInterval(interval);
     }, 5000);
   }
 
