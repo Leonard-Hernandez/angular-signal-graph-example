@@ -39,7 +39,7 @@ p:nth-of-type(2) {
   font-variant-numeric: tabular-nums; /* aligns numbers nicely */
 }
 
-/* Subtle separator when there are more lines in the future */
+/* Subtle separator when there are more lines in the future*/
 :host::after {
   content: "";
   display: block;
