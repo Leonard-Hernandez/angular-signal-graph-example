@@ -14,11 +14,20 @@ export class CounterComponent {
     protected lastValue = computed(() => this.count());
     protected previousCount = linkedSignal(() => this.count());
 
+    protected objectSignals = signal({
+        "nombre": "Juan",
+        "edad": 30,
+        "ciudad": "Madrid",
+        "esEstudiante": false
+      });
+
     protected double = computed(() => {
-        const currentValue = 0;
-        console.log('Double calculated (broken version)');
-        return currentValue * 2;
+        return this.count() * 2;
     });
+
+    fullname = computed(() => {
+        return this.objectSignals().nombre + " de " + this.objectSignals().edad + " de edad "
+    })
   
     constructor() {
         effect(() => {
